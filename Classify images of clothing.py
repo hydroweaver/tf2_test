@@ -51,15 +51,7 @@ predictions = model.predict(x_test)
 
 print(np.argmax(predictions[0]))
 
+np.save(r'C:\Users\hydro\.spyder-py3\tf2\predictions', predictions)
+np.save(r'C:\Users\hydro\.spyder-py3\tf2\train_images', x_train[:1000])
+np.save(r'C:\Users\hydro\.spyder-py3\tf2\train_labels', y_train[:1000])
 
-def plot_image(i, predictions_array, true_label, img):
-    predictions_array, true_label, img = predictions_array, true_label[i], img[i]
-    plt.grid(False)
-    plt.xticks([])
-    plt.yticks([])
-    
-    plt.imshow(img, cmap=plt.cm.binary)
-    
-    predicted_label = np.argmax(predictions_array)
-    
-    if pre
