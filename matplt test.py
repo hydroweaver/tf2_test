@@ -2,9 +2,19 @@ import matplotlib.pyplot as plt
 import tensorflow as tf
 import numpy as np
 
-train_images = np.load(r'C:\Users\hydro\.spyder-py3\tf2\train_images.npy')
+main_dir = 
+
+'''train_images = np.load(r'C:\Users\hydro\.spyder-py3\tf2\train_images.npy')
+train_labels = np.load(r'C:\Users\hydro\.spyder-py3\tf2\train_labels.npy')
+predictions = np.load(r'C:\Users\hydro\.spyder-py3\tf2\predictions.npy')'''
+
+
+
+train_images = np.load(r\train_images.npy')
 train_labels = np.load(r'C:\Users\hydro\.spyder-py3\tf2\train_labels.npy')
 predictions = np.load(r'C:\Users\hydro\.spyder-py3\tf2\predictions.npy')
+
+
 #train_labels = tf.one_hot(train_labels, 10)
 
 class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat', 
