@@ -51,7 +51,16 @@ predictions = model.predict(x_test)
 
 print(np.argmax(predictions[0]))
 
+model.save(r'C:\Users\hydro\.spyder-py3\tf2\fashion_mnist\model.h5')
+
 np.save(r'C:\Users\hydro\.spyder-py3\tf2\predictions', predictions)
-np.save(r'C:\Users\hydro\.spyder-py3\tf2\train_images', x_train[:1000])
-np.save(r'C:\Users\hydro\.spyder-py3\tf2\train_labels', y_train[:1000])
+np.save(r'C:\Users\hydro\.spyder-py3\tf2\test_images', x_test[:1000])
+np.save(r'C:\Users\hydro\.spyder-py3\tf2\test_labels', y_test[:1000])
+
+
+
+
+
+
+
 
