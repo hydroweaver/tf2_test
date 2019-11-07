@@ -37,6 +37,19 @@ filter1 = np.array([[0, 0, 0],
                     [1, 1, 1],
                     [0, 0, 0]])'''
 
+'''filter1 = np.array([[1, -1, 1, -1, 1],
+                    [0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0],
+                    [-1, 1, -1, 1, -1]])''' #applies hazier or more blurry operations on the image for horizontal lines
+
+'''filter1 = np.array([[1, 0, 0, 0, -1],
+                    [1, 0, 0, 0, -1],
+                    [1, 0, 0, 0, -1],
+                    [1, 0, 0, 0, -1],
+                    [1, 0, 0, 0, -1]])''' #applies hazier or more blurry operations on the image for vertical lines
+
+
 weight = 1
 
 plt.ion()
@@ -44,6 +57,8 @@ plt.subplots(1, 2)
 plt.subplot(1, 2, 1)
 plt.imshow(image)
 
+
+#FOR 3X3 FILTER
 for i in range(1, image_copy_x-2):
     for j in range(1, image_copy_y-2):
         if np.sum(filter1*image_copy[i:i+3, j:j+3]) < 0:
@@ -52,6 +67,18 @@ for i in range(1, image_copy_x-2):
             image_copy[i, j] = 255
         else:
             image_copy[i, j] = np.sum(filter1*image_copy[i:i+3, j:j+3])*weight
+
+
+#FOR 5X5 FILTER
+
+for i in range(1, image_copy_x-4):
+    for j in range(1, image_copy_y-4):
+        if np.sum(filter1*image_copy[i:i+5, j:j+5]) < 0:
+            image_copy[i, j] = 0
+        elif np.sum(filter1*image_copy[i:i+5, j:j+5]) > 255:
+            image_copy[i, j] = 255
+        else:
+            image_copy[i, j] = np.sum(filter1*image_copy[i:i+5, j:j+5])*weight
     
 plt.subplot(1, 2, 2)
 plt.imshow(image_copy)
