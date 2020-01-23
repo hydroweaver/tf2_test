@@ -24,12 +24,10 @@ model.fit(x_train,
 
 model.evaluate(x_test, y_test, verbose=2)
 
-#keras_mnist_model_path = r'C:\Users\hydro\.spyder-py3\tf2\mnist.hd5'
+model.save(r'C:\Users\hydro\.spyder-py3\tf2\mnist.h5')
 
-#model.save(keras_mnist_model_path)
-
-
-converter = tf.lite.TFLiteConverter.from_keras_model(model)
+#converter = tf.lite.TFLiteConverter.from_saved_model(r'C:\Users\hydro\.spyder-py3\tf2\mnist.hd5',)
+converter = tf.lite.TFLiteConverter.from_keras_model(r'C:\Users\hydro\.spyder-py3\tf2')
 tflite_model = converter.convert()
 
 keras_mnist_lite_model_path = r'C:\Users\hydro\.spyder-py3\tf2\mnist.tflite'
@@ -38,7 +36,8 @@ open(keras_mnist_lite_model_path, "wb").write(tflite_model)
 #From https://www.tensorflow.org/lite/guide/inference#supported_platforms
 
 # Load TFLite model and allocate tensors.
-interpreter = tf.lite.Interpreter(model_path=keras_mnist_lite_model_path)
+#interpreter = tf.lite.Interpreter(model_path=keras_mnist_lite_model_path)
+interpreter = tf.lite.Interpreter(model_path=r'C:\Users\hydro\.spyder-py3\tf2\colab_mnist.tflite')
 interpreter.allocate_tensors()
 
 # Get input and output tensors.
