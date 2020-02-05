@@ -1,8 +1,8 @@
 import requests
 import json
 
-api_token = 'a15fc0880a68ab072cb2b5132832703d46a46107257c32c9c5a355e8012120cb'
-api_key = '835888a2e5125840051c10fd80c58606'
+api_token = 'API_TOKEN'
+api_key = 'API_KEY'
 trello_url = str('https://api.trello.com/1/members/me/boards?key=' + api_key + '&token=' + api_token)
 
 trello_info = requests.get(trello_url)
